@@ -1,0 +1,24 @@
+#!/bin/bash
+# Lançador do AppImage "Linux Music Player".
+HERE="$(dirname "$(readlink -f "$0")")"
+export PYTHONNOUSERSITE=1 PYTHONDONTWRITEBYTECODE=1
+export REPRODUTOR_ICONE="$HERE/reprodutor.png"
+unset PYTHONPATH PYTHONHOME
+PY="$HERE/opt/python3.12/bin/python3.12"
+APP="$HERE/usr/share/linux-music-player"
+case "$1" in
+  --leia-me) exec cat "$APP/LEIA-ME.txt" ;;
+  -h|--help|--ajuda)
+    cat <<'TXT'
+Linux Music Player
+
+  Linux-Music-Player.AppImage                    abre o programa
+  Linux-Music-Player.AppImage PASTA_OU_ARQUIVOS  abre e já toca (sem pôr na biblioteca)
+  Linux-Music-Player.AppImage --instalar-atalho  põe o programa no menu de aplicativos
+  Linux-Music-Player.AppImage --remover-atalho   tira do menu
+  Linux-Music-Player.AppImage --leia-me          mostra o manual completo
+  Linux-Music-Player.AppImage --versao           mostra a versão
+TXT
+    ;;
+  *) exec "$PY" -s -E "$APP/linux-music-player.py" "$@" ;;
+esac

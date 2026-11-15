@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+Name=Linux Music Player
+GenericName=Tocador de músicas
+Comment=Toca músicas com biblioteca, capas e listas
+Exec=linux-music-player %F
+TryExec=linux-music-player
+Icon=linux-music-player
+Terminal=false
+Categories=AudioVideo;Audio;Player;
+Keywords=música;mp3;player;tocar;
+MimeType=audio/mpeg;audio/flac;audio/ogg;audio/x-opus+ogg;audio/mp4;audio/x-wav;audio/x-m4a;
+StartupWMClass=reprodutor

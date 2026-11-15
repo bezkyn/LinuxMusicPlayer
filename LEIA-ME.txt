@@ -1,0 +1,247 @@
+LINUX MUSIC PLAYER 1.0.0
+========================
+
+Um tocador de músicas com biblioteca, num arquivo só (linux-music-player.py):
+navegação por pastas, artista, álbum e gênero, notas em estrelas, lista
+atual e listas salvas. A janela tem a estrutura clássica (barra de
+ferramentas, árvore da biblioteca, tabela agrupada por álbum, lista atual e
+controles) com cartões de cantos arredondados, as cores da família LMP e a
+fonte Inter, que vai junto com o programa. Não depende do gerenciador de
+tags nem do renomeador.
+
+
+1. O QUE PRECISA
+----------------
+  Debian/Ubuntu/Mint:
+    sudo apt install python3-pyqt6 python3-pyqt6.qtmultimedia python3-pyqt6.qtsvg python3-mutagen
+  Fedora:
+    sudo dnf install python3-pyqt6 python3-mutagen
+  Arch:
+    sudo pacman -S python-pyqt6 qt6-multimedia-ffmpeg python-mutagen
+
+O python3-pyqt6.qtsvg desenha os ícones; sem ele o programa funciona igual,
+só que sem ícones. O mutagen é opcional: sem ele a lista mostra só o nome do arquivo, sem
+artista, álbum, número da faixa, duração e capa.
+
+
+2. COMO ABRIR
+-------------
+Descompacte a pasta linux-music-player/ em qualquer lugar (por exemplo, na pasta
+pessoal) e rode:
+
+  python3 ~/linux-music-player/linux-music-player.py
+  python3 ~/linux-music-player/linux-music-player.py ~/Downloads/"CHICO CHICO"   (toca na hora)
+  python3 ~/linux-music-player/linux-music-player.py musica1.mp3 musica2.flac
+
+Na primeira vez, clique em "Adicionar pasta à biblioteca…" (no alto) e escolha as
+pastas onde ficam suas músicas (~/Music, ~/Downloads, a pasta do MEGA…).
+Dá para adicionar quantas quiser.
+
+
+3. A JANELA
+-----------
+Cada área é um cartão arredondado sobre um fundo levemente tingido:
+
+1. Barra de ferramentas (no alto): Adicionar pasta à biblioteca…,
+   Atualizar (F5), Tocar pasta… e Tocar arquivos… (estes dois tocam sem
+   pôr na biblioteca), o caminho (Biblioteca › Músicas › Todas as músicas),
+   a pesquisa (Ctrl+F; filtra o que está aberto) e o botão Tema.
+
+2. Árvore da biblioteca (esquerda):
+     Biblioteca
+       Listas ......... as listas salvas aparecem embaixo
+       Músicas ........ Todas as músicas, Artista, Álbum e Gênero
+       Pastas ......... as pastas da biblioteca e as subpastas (setas)
+   O item aberto fica numa pílula na cor de destaque. Com o mouse em cima
+   de uma pasta aparece uma lixeira: ela exclui a pasta da biblioteca (veja
+   em COMO USAR).
+
+3. Tabela (centro): agrupada por artista (o nome na cor de destaque) e por
+   álbum: à esquerda a capa, o nome do álbum, artista, gênero e ano; à
+   direita as faixas, com as colunas #, Título, Duração, Avaliação e
+   Artista participante. A música tocando fica numa linha arredondada
+   tingida, com o texto na cor de destaque. Artista, Álbum, Gênero, Listas
+   e Pastas abrem grades com as capas; dois cliques abrem.
+
+4. Lista atual (direita): Salvar lista (M3U8) e Limpar lista; o cartão
+   "tocando agora" (capa, título, artista e álbum); LISTA ATUAL, a fila, com
+   ▶ na música tocando; e o total no rodapé (por exemplo
+   "20 música(s), 1,6 horas").
+
+5. Barra de reprodução (embaixo): a barra de tempo com os tempos (pula para
+   onde você clicar); a capa e a música à esquerda; no centro aleatório,
+   repetir (Sem repetir → Repetir lista → Repetir faixa), parar, anterior,
+   tocar/pausar e próxima — aleatório e repetir ligados ganham fundo
+   tingido; à direita o mudo, o volume e a porcentagem (as setas do teclado
+   não mexem nele).
+
+6. Barra de status: o resumo da biblioteca (músicas, álbuns e horas). Avisos
+   (biblioteca lida, lista salva, erros) aparecem ali por alguns segundos.
+
+Temas de cores: o botão "Tema", no alto à direita, troca as cores na hora.
+A escolha fica salva para a próxima vez. Os três usam o mesmo layout:
+  LMP 1 ........... claro, azuis LMP sobre branco gelo (o padrão)
+  LMP 2 ........... escuro, a mesma família de azuis sobre grafite
+  Do sistema ...... só as cores vêm do KDE/GNOME (Breeze claro, Breeze
+                    escuro ou qualquer esquema); cantos, espaços, ícones e
+                    fonte continuam iguais. Trocar o esquema de cores do
+                    sistema troca o player junto.
+A fonte é sempre a Inter (pasta fontes/, licença SIL OFL em fontes/OFL.txt),
+em todos os temas. Não precisa instalar nada: o programa carrega sozinho.
+
+
+4. COMO USAR
+------------
+  - Dois cliques numa música: a lista atual vira tudo o que está aberto no
+    centro (a pasta, o álbum, o artista…) e começa por ela.
+  - Arraste músicas do centro para a lista atual, na posição que quiser.
+    Dentro da lista, arraste para mudar a ordem; Delete tira da lista.
+  - Arraste arquivos ou pastas do gerenciador de arquivos para a janela ou
+    para a lista.
+  - Botão direito numa música, pasta, artista, álbum, gênero ou lista:
+    Tocar, Tocar a seguir, Adicionar à lista atual, Tocar em ordem
+    aleatória. Nas músicas também tem Avaliar e Abrir pasta do arquivo.
+  - LISTAS (playlists), com uma música ou várias de uma vez:
+      * selecione as músicas (Ctrl+clique escolhe várias soltas,
+        Shift+clique escolhe uma sequência), clique com o botão direito →
+        "Adicionar à lista" → escolha a lista, ou "Nova lista…";
+      * ou arraste as músicas até uma lista na esquerda (em Listas). Soltar
+        em cima de "Listas" cria uma lista nova com elas;
+      * vale também para pastas, artistas, álbuns e gêneros (botão direito
+        → Adicionar à lista) e para músicas da Lista atual;
+      * música que já está na lista não é repetida (ele avisa embaixo);
+      * com a lista aberta, botão direito numa música: "Tirar desta lista",
+        "Subir na lista", "Descer na lista";
+      * botão direito na lista (esquerda): Renomear lista…, Excluir lista…;
+        em "Listas": Nova lista vazia…;
+      * Salvar lista (acima da LISTA ATUAL) grava a Lista atual; se ela veio de uma
+        lista salva, o nome já vem preenchido para substituir.
+  - Avaliação: clique na estrela (clicar na mesma nota de novo tira a
+    nota). Se o arquivo já tem nota do Windows Media Player ou do Winamp,
+    ela aparece.
+  - Os botões Tocar pasta… e Tocar arquivos… (no alto) tocam sem pôr na
+    biblioteca.
+  - Atualizar (F5) relê as pastas. Ele também relê sozinho ao abrir;
+    só lê de novo os arquivos que mudaram, então é rápido.
+  - EXCLUIR UMA PASTA DA BIBLIOTECA: com o mouse em cima da pasta (em
+    Pastas, na árvore da esquerda), clique na lixeira — ou botão direito na pasta →
+    "Excluir da biblioteca…". Ele pergunta antes. Vale para as pastas
+    principais e para as subpastas. As músicas só deixam de aparecer; nada
+    é apagado do disco. Para trazer de volta, use "Adicionar pasta à biblioteca…" e
+    escolha a mesma pasta.
+  - Arquivo que não toca é pulado, com aviso na barra de status.
+  - Ao fechar, ele guarda a lista atual e a música em que parou.
+
+Atalhos:
+  Espaço / Ctrl+P    tocar / pausar
+  Ctrl+→ / Ctrl+←    próxima / anterior
+  Alt+→ / Alt+←      avança / volta 10 segundos
+  Ctrl+↑ / Ctrl+↓    volume +5% / -5%
+  Ctrl+F             pesquisar
+  F5                 atualizar a biblioteca
+  Enter              toca a música selecionada
+  Delete             tira da lista atual (com a lista em foco)
+  Teclas de mídia do teclado: funcionam mesmo com a janela minimizada ou
+  atrás de outras (pelo MPRIS, abaixo).
+
+Controle pelo sistema (MPRIS):
+  O Linux Music Player aparece no widget de mídia do Plasma (bandeja), na tela de
+  bloqueio, no KDE Connect (celular) e em qualquer programa que use o
+  padrão MPRIS, como o playerctl. Por lá dá para ver a música, a capa e o
+  tempo, tocar/pausar, pular, voltar, avançar dentro da música, mudar o
+  volume e ligar o aleatório e o repetir. O GNOME e outros ambientes
+  também mostram nos controles de mídia deles.
+
+
+5. FORMATOS E ARQUIVOS
+-----------
+Toca: .mp3 .m4a .mp4 .aac .flac .ogg .oga .opus .wav .aif .aiff .webm .mka .wma
+(o som é decodificado pelo FFmpeg que vem com o Qt).
+Lê tags e capa de: MP3, WAV, AIFF, M4A, FLAC, Ogg e Opus.
+Cada música mostra a capa que está DENTRO do próprio arquivo. Só quando o
+arquivo não tem capa ele usa a imagem da pasta (cover.jpg, folder.jpg…).
+Ele só LÊ as tags; nunca altera os arquivos de música (as notas ficam
+num arquivo dele, não dentro das músicas).
+
+Onde ele guarda as coisas:
+  ~/.config/reprodutor/reprodutor.conf       pastas da biblioteca, volume, modos
+  ~/.local/share/reprodutor/listas/          listas salvas (.m3u8, abrem em
+                                             qualquer player)
+  ~/.local/share/reprodutor/notas.json       as notas em estrelas
+  ~/.local/share/reprodutor/lista-atual.json a fila ao fechar
+  ~/.cache/reprodutor/                       cache da biblioteca e miniaturas
+                                             das capas (pode apagar; ele refaz)
+  (as pastas continuam com o nome "reprodutor", o nome antigo do programa,
+  para não perder a biblioteca, as listas e as notas já salvas)
+
+
+6. ÍCONE NO MENU (versão .py, opcional)
+---------------------------------------
+O ícone do programa é o arquivo linux-music-player.png, na mesma pasta.
+No AppImage, use --instalar-atalho (seção 7). Na versão .py, cole no
+terminal (ajuste o caminho se a pasta estiver em outro lugar):
+
+  cat > ~/.local/share/applications/reprodutor.desktop <<FIM
+[Desktop Entry]
+Type=Application
+Name=Linux Music Player
+Comment=Toca músicas com capa e tags
+Exec=python3 $HOME/linux-music-player/linux-music-player.py %F
+Icon=$HOME/linux-music-player/linux-music-player.png
+Terminal=false
+Categories=AudioVideo;Audio;Player;
+MimeType=audio/mpeg;audio/flac;audio/ogg;audio/x-opus+ogg;audio/mp4;audio/x-wav;
+StartupWMClass=reprodutor
+FIM
+
+Ele aparece no menu de aplicativos e em "Abrir com" nos arquivos de música.
+Para tirar: rm ~/.local/share/applications/reprodutor.desktop
+
+
+7. APPIMAGE (Linux-Music-Player-<versão>-x86_64.AppImage)
+---------------------------------------------------------
+Um arquivo só, com Python, Qt (com o som), mutagen e o Linux Music Player dentro.
+Não precisa instalar nada. Funciona em distribuições x86_64 com glibc 2.34
+ou mais nova (Ubuntu 22.04+, Debian 12+, Fedora 35+, Mint 21+, Arch...).
+
+  chmod +x Linux-Music-Player-*-x86_64.AppImage
+  ./Linux-Music-Player-*-x86_64.AppImage
+
+Opções:
+  ./Linux-Music-Player-x86_64.AppImage ~/Music          abre e já toca a pasta
+  ./Linux-Music-Player-x86_64.AppImage --instalar-atalho   põe no menu de aplicativos
+                                                    (e em "Abrir com" nas músicas)
+  ./Linux-Music-Player-x86_64.AppImage --remover-atalho    tira do menu
+  ./Linux-Music-Player-x86_64.AppImage --leia-me           mostra este manual
+  ./Linux-Music-Player-x86_64.AppImage --versao           mostra a versão
+  ./Linux-Music-Player-x86_64.AppImage --ajuda
+
+Se usar o Gear Lever ou o AppImageLauncher, não precisa do
+--instalar-atalho (ele avisa que já existe um atalho e não cria outro).
+Fixe o ícone na barra de tarefas DEPOIS que o programa estiver no menu: a
+janela se apresenta com o nome do atalho instalado, então o ícone fixado
+continua funcionando depois que o programa fecha.
+
+A biblioteca, as listas e as notas ficam nos mesmos lugares da versão .py
+(seção 5), então dá para trocar entre as duas sem perder nada.
+
+
+8. PACOTE .DEB (Debian 12+, Ubuntu 24.04+, Mint 22+)
+----------------------------------------------------
+O linux-music-player_<versão>_all.deb é pequeno: leva só o programa, a fonte
+e os ícones, e usa o Python e o PyQt6 da própria distribuição.
+
+  sudo apt install ./linux-music-player_*_all.deb     instala (e as dependências)
+  linux-music-player                                  abre pelo terminal
+  sudo apt remove linux-music-player                  remove
+
+Ele aparece no menu de aplicativos e em "Abrir com" nas músicas. A
+biblioteca, as listas e as notas são as mesmas do AppImage e da versão .py.
+
+
+9. CRÉDITOS
+-----------
+Fonte: Inter (https://rsms.me/inter/), licença SIL Open Font License — veja
+fontes/OFL.txt.
+Ícones: Phosphor Icons (https://phosphoricons.com), licença MIT — veja o
+arquivo LICENCA-ICONES-PHOSPHOR.txt. Eles vão embutidos no linux-music-player.py.

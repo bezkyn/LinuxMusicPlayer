@@ -241,6 +241,7 @@ biblioteca, as listas e as notas são as mesmas do AppImage e da versão .py.
 
 9. CRÉDITOS
 -----------
+Linux Music Player: licença MIT — veja o arquivo LICENSE.
 Fonte: Inter (https://rsms.me/inter/), licença SIL Open Font License — veja
 fontes/OFL.txt.
 Ícones: Phosphor Icons (https://phosphoricons.com), licença MIT — veja o

@@ -17,6 +17,7 @@
   <img alt="AppImage" src="https://img.shields.io/badge/AppImage-pronto-176A9A">
   <img alt=".deb" src="https://img.shields.io/badge/.deb-Debian%20%7C%20Ubuntu-A81D33?logo=debian&logoColor=white">
   <img alt="MPRIS" src="https://img.shields.io/badge/MPRIS-Plasma%20%7C%20GNOME-1D99F3?logo=kde&logoColor=white">
+  <img alt="Licença MIT" src="https://img.shields.io/badge/licen%C3%A7a-MIT-2E7D32">
 </p>
 
 <p align="center">
@@ -176,4 +177,4 @@ Testado no Debian 13 com KDE Plasma.
 
 ## Licença
 
-*(escolha uma licença, por exemplo MIT ou GPL-3.0, e cite aqui)*
+Código sob a licença [MIT](LICENSE). A fonte Inter segue a [SIL OFL 1.1](fontes/OFL.txt) e os ícones Phosphor, a [MIT](LICENCA-ICONES-PHOSPHOR.txt).

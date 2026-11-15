@@ -11,6 +11,8 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/juscelino25bezerra-art/LinuxMusicPlayer/releases/latest"><img alt="Versão" src="https://img.shields.io/github/v/release/juscelino25bezerra-art/LinuxMusicPlayer?label=vers%C3%A3o&color=176A9A"></a>
+  <a href="https://github.com/juscelino25bezerra-art/LinuxMusicPlayer/actions/workflows/build.yml"><img alt="Pacotes" src="https://github.com/juscelino25bezerra-art/LinuxMusicPlayer/actions/workflows/build.yml/badge.svg"></a>
   <img alt="Python 3.9+" src="https://img.shields.io/badge/Python-3.9%2B-3776AB?logo=python&logoColor=white">
   <img alt="Qt 6 / PyQt6" src="https://img.shields.io/badge/Qt%206-PyQt6-41CD52?logo=qt&logoColor=white">
   <img alt="Linux" src="https://img.shields.io/badge/Linux-x86__64-FCC624?logo=linux&logoColor=black">
